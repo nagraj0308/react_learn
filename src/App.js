@@ -3,8 +3,13 @@ import React from 'react';
 import Comp1 from './components/comp1';
 import Comp2 from './components/comp2';
 import Comp3 from './components/comp3';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import QueryForm from './components/form';
+// import Default from "./components/Default.component";
+// import { Custom404 } from "./components/custom404";
 
 class App extends React.Component {
+  
   state = {
     name: "NagRaj",
     mobile: "7060196036",
@@ -16,6 +21,8 @@ class App extends React.Component {
       { name: "C", age: "23", gender: "M", key: 3 }
     ]
   }
+
+      
   onChangeNoClick = (e) => {
     this.setState({ no: Math.random() * 10 });
     console.log(this.state);
@@ -31,6 +38,15 @@ class App extends React.Component {
 
   render() {
     return (
+      // <Router>
+      //   <Switch>
+      //     <Route path="/home/" component={()=><Comp1 name="Boy" age="23" gender="Male" />} />
+      //     <Route path="/comp2/" component={Comp2} />
+
+      //   </Switch>
+      // </Router>
+
+
       <div className="main" >
         <h1>{this.state.name}</h1>
         <h2>{this.state.mobile}</h2>
@@ -44,6 +60,7 @@ class App extends React.Component {
           <Comp1 name="Girl" age="22" gender="Female" />
           <Comp2 items={this.state.items} />
           <Comp3 items={this.state.items} />
+          <QueryForm/>
           <button id='btnSubmit' type="submit" onClick={this.onBtnSubmit}>Submit</button>
         </form>
       </div>
